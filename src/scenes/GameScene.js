@@ -1,5 +1,6 @@
 let keyW,keyA,keyS,keyD
 let player
+let cloud
 class GameScene extends Phaser.Scene{
 
     constructor(){
@@ -10,6 +11,7 @@ class GameScene extends Phaser.Scene{
 
     preload(){
         this.load.image('Player','../../images/Gokuตัดเองจ้า.png',{frameWidth :384 ,frameHeight:216})
+        this.load.image('Cloud','../../images/Cloud.png')
 
     }
     
@@ -19,7 +21,7 @@ class GameScene extends Phaser.Scene{
         keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
         keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
-        
+        cloud = this.physics.add.image(-100,-750,'Cloud').setOrigin(0,0).setScale(0.7).setSize(0.2)
 
     }
 
@@ -33,7 +35,7 @@ class GameScene extends Phaser.Scene{
                 player.setVelocityY(+330)
             } if (keyW.isDown) {
                 player.setVelocityY(-330)
-            }
+            } 
         }
     }
 
